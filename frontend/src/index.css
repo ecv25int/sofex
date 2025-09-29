@@ -1,0 +1,86 @@
+/* Import Design System */
+@import './styles/design-system.css';
+
+/* Legacy styles - will be gradually replaced */
+:root {
+  font-family: var(--font-family-primary);
+  line-height: var(--line-height-normal);
+  font-weight: var(--font-weight-regular);
+  
+  color-scheme: light;
+  color: var(--color-gray-900);
+  background-color: var(--color-gray-50);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-primary);
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--color-gray-50);
+}
+
+h1 {
+  font-size: var(--font-size-3xl);
+  line-height: var(--line-height-tight);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-gray-900);
+}
+
+/* Update button styles to use design system */
+button {
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  padding: var(--spacing-3) var(--spacing-4);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  font-family: inherit;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+button:focus,
+button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.2);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: var(--color-gray-900);
+    background-color: var(--color-gray-50);
+  }
+  
+  a:hover {
+    color: var(--color-primary-dark);
+  }
+  
+  button {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+}
+
+/* Remove old dark mode styles as we're focusing on light theme for consistency */
