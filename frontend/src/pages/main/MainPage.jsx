@@ -1,15 +1,6 @@
-              <div
-                className={`btn ${selectedPage === 'siteguids' ? 'btn-primary' : 'btn-secondary'}`}
-                style={{
-                  marginBottom: 'var(--spacing-2)',
-                  justifyContent: sidebarCollapsed ? 'center' : 'flex-start',
-                  width: '100%',
-                  cursor: 'pointer',
-                }}
-                onClick={() => setSelectedPage('siteguids')}
-              >
-                {sidebarCollapsed ? '🛡️' : <>🛡️ Siteguids</>}
-              </div>
+// ...existing imports and code...
+
+// Removed duplicate MainPage function declaration
 
 import React, { useState } from 'react';
 import { parseJwt } from '../../utils/jwt';

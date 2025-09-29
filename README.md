@@ -10,7 +10,7 @@
 ### 1. Start the Backend
 ```sh
 cd backend
-./mvnw spring-boot:run
+mvn spring-boot:run
 ```
 
 ### 2. Start the Frontend
