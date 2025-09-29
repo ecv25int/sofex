@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="1" author="copilot">
+        <createTable tableName="app_user">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="username" type="VARCHAR(50)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="password" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <include file="db/changelog/8-inventory-and-product-update.xml"/>
+
+    <changeSet id="2" author="copilot">
+        <createTable tableName="product">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sku_id" type="VARCHAR(255)"/>
+            <column name="type" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+    <include file="config/liquibase/changelog/9-product-image-table.xml"/>
+
+    <changeSet id="3" author="copilot">
+        <createTable tableName="provider">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <include file="db/changelog/4-add-product-price.xml"/>
+    <include file="db/changelog/5-add-sale-tables.xml"/>
+    <include file="db/changelog/6-add-warehouse-table.xml"/>
+    <include file="db/changelog/7-fix-warehouse-id.xml" />
+    <include file="db/changelog/10-drop-product-price.xml"/>
+    <include file="db/changelog/11-product-image-blob.xml"/>
+
+    <include file="db/changelog/12-user-role-tables.xml"/>
+    <include file="db/changelog/13-add-provider-to-product.xml"/>
+    <include file="db/changelog/15-create-provider-type-table.xml"/>
+    <include file="db/changelog/16-create-brand-table.xml"/>
+    <include file="db/changelog/17-create-currency-table.xml"/>
+    <include file="db/changelog/18-create-license-table.xml"/>
+    <include file="db/changelog/19-create-siteguid-table.xml"/>
+    <include file="db/changelog/20-create-country-table.xml"/>
+    <include file="db/changelog/14-add-provider-type-to-provider.xml"/>
+    <include file="db/changelog/010-create-costa-rica-divisions.sql"/>
+
+</databaseChangeLog>
