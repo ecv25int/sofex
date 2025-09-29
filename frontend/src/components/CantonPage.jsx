@@ -24,10 +24,10 @@ const CantonPage = ({ user }) => {
     try {
       setLoading(true);
       const [cantonsResponse, provincesResponse] = await Promise.all([
-        axios.get('http://localhost:8080/api/cantons', {
+      axios.get('/api/cantons', {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         }),
-        axios.get('http://localhost:8080/api/provinces', {
+      axios.get('/api/provinces', {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })
       ]);
@@ -62,7 +62,7 @@ const CantonPage = ({ user }) => {
     try {
       setLoading(true);
       setError('');
-      await axios.post('http://localhost:8080/api/cantons', 
+  await axios.post('/api/cantons', 
         newCanton,
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }}
       );
@@ -94,7 +94,7 @@ const CantonPage = ({ user }) => {
     try {
       setLoading(true);
       setError('');
-      await axios.put(`http://localhost:8080/api/cantons/${editingCanton}`, 
+  await axios.put(`/api/cantons/${editingCanton}`, 
         editData,
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }}
       );
@@ -119,7 +119,7 @@ const CantonPage = ({ user }) => {
     try {
       setLoading(true);
       setError('');
-      await axios.delete(`http://localhost:8080/api/cantons/${id}`, {
+  await axios.delete(`/api/cantons/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setSuccess('Canton deleted successfully!');

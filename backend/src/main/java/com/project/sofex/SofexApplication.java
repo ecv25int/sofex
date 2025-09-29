@@ -36,7 +36,7 @@ public class SofexApplication {
 			// Create admin user
 			if (userRepository.findByUsername("admin").isEmpty()) {
 				User user = new User();
-				user.setUsername("admin");
+				user.setUsername("adminSofex");
 				user.setPassword(passwordEncoder.encode("admin"));
 				user.setEmail("admin@example.com");
 				user.setFirstName("Admin");
@@ -48,7 +48,7 @@ public class SofexApplication {
 			// Create sales user
 			if (userRepository.findByUsername("sales").isEmpty()) {
 				User user = new User();
-				user.setUsername("sales");
+				user.setUsername("salesSofex");
 				user.setPassword(passwordEncoder.encode("sale"));
 				user.setEmail("sales@example.com");
 				user.setFirstName("Sales");
@@ -58,9 +58,9 @@ public class SofexApplication {
 			}
 
 			// Create reporter user
-			if (userRepository.findByUsername("reporter").isEmpty()) {
+			if (userRepository.findByUsername("reporterSofex").isEmpty()) {
 				User user = new User();
-				user.setUsername("reporter");
+				user.setUsername("reporterSofex");
 				user.setPassword(passwordEncoder.encode("reporter"));
 				user.setEmail("reporter@example.com");
 				user.setFirstName("Report");

@@ -39,13 +39,13 @@ const DistrictPage = ({ user }) => {
     try {
       setLoading(true);
       const [districtsResponse, cantonsResponse, provincesResponse] = await Promise.all([
-        axios.get('http://localhost:8080/api/districts', {
+      axios.get('/api/districts', {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         }),
-        axios.get('http://localhost:8080/api/cantons', {
+      axios.get('/api/cantons', {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         }),
-        axios.get('http://localhost:8080/api/provinces', {
+      axios.get('/api/provinces', {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })
       ]);
@@ -66,7 +66,7 @@ const DistrictPage = ({ user }) => {
     try {
       setLoading(true);
       setError('');
-      await axios.post('http://localhost:8080/api/districts', 
+  await axios.post('/api/districts', 
         newDistrict,
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }}
       );
@@ -99,7 +99,7 @@ const DistrictPage = ({ user }) => {
     try {
       setLoading(true);
       setError('');
-      await axios.put(`http://localhost:8080/api/districts/${editingDistrict}`, 
+  await axios.put(`/api/districts/${editingDistrict}`, 
         editData,
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }}
       );
@@ -124,7 +124,7 @@ const DistrictPage = ({ user }) => {
     try {
       setLoading(true);
       setError('');
-      await axios.delete(`http://localhost:8080/api/districts/${id}`, {
+  await axios.delete(`/api/districts/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setSuccess('District deleted successfully!');

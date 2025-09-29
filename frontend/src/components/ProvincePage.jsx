@@ -22,7 +22,7 @@ const ProvincePage = ({ user }) => {
   const loadProvinces = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:8080/api/provinces', {
+  const response = await axios.get('/api/provinces', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       // Sort provinces by ID in ascending order
@@ -42,7 +42,7 @@ const ProvincePage = ({ user }) => {
     try {
       setLoading(true);
       setError('');
-      await axios.post('http://localhost:8080/api/provinces', 
+      await axios.post('/api/provinces', 
         { name: newProvince },
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }}
       );
@@ -71,7 +71,7 @@ const ProvincePage = ({ user }) => {
     try {
       setLoading(true);
       setError('');
-      await axios.put(`http://localhost:8080/api/provinces/${editingProvince}`, 
+  await axios.put(`/api/provinces/${editingProvince}`, 
         { name: editName },
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }}
       );
@@ -96,7 +96,7 @@ const ProvincePage = ({ user }) => {
     try {
       setLoading(true);
       setError('');
-      await axios.delete(`http://localhost:8080/api/provinces/${id}`, {
+  await axios.delete(`/api/provinces/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setSuccess('Province deleted successfully!');
